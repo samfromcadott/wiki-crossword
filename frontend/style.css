@@ -1,0 +1,9 @@
+table {
+	background-color: black;
+}
+
+td {
+	width: 2em;
+	height: 2em;
+	background-color: white;
+}
