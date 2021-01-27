@@ -10,8 +10,8 @@
 </head>
 <body>
 	<table id="puzzle">
-		<tr v-for="y in 10">
-			<td v-for="x in 10"> </td>
+		<tr v-for="row in grid">
+			<td v-for="cell in row" v-bind:class="{ 'answer-square': cell!=null }"> </td>
 		</tr>
 	</table>
 
