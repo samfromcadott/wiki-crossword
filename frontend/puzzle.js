@@ -41,21 +41,34 @@ for (var i = 0; i < grid.length; i++) {
 for (word in puzzle.across) {
 	var w = puzzle.across[word]
 	for (var i = 0; i < w.answer.length; i++) {
-		grid[w.y][w.x+i] = w.answer[i]
+		var n = 0
+		if (i == 0) {
+			n = word
+		}
+
+		grid[w.y][w.x+i] = {text: w.answer[i], number: n}
+
 	}
 }
 
 for (word in puzzle.down) {
 	var w = puzzle.down[word]
 	for (var i = 0; i < w.answer.length; i++) {
-		grid[w.y+i][w.x] = w.answer[i]
+		var n = 0
+		if (i == 0) {
+			n = word
+		}
+
+		grid[w.y+i][w.x] = {text: w.answer[i], number: n}
+
 	}
 }
+console.log(grid);
 
 var crossword = new Vue({
 	el: '#puzzle',
 	data: {
-		grid: grid
+		grid: grid,
 
 	}
 

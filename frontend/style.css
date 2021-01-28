@@ -10,3 +10,8 @@ td {
 td.answer-square {
 	background-color: white;
 }
+
+.answer-square>.answer-number {
+	position: absolute;
+	font-size: 8pt;
+}
