@@ -1,0 +1,1 @@
+web: gunicorn wiki-crossword.wsgi
