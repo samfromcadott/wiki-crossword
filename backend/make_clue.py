@@ -19,4 +19,6 @@ def makeClue(page):
 
 	return clue
 
-print(makeClue('Cadott, Wisconsin'))
+
+if __name__ == '__main__':
+	print(makeClue('Cadott, Wisconsin'))
