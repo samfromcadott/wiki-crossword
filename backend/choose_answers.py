@@ -35,7 +35,7 @@ def make_questions(category, n):
 	pages = get_pages(category)
 	questions = []
 
-	for i in range(n):
+	for i in range( min(n, len(pages)) ):
 		q = {"page": '', "answer": '', "clue": ''}
 		q["page"] = pages.pop( random.randint(0, len(pages)-1) )
 		q["answer"] = scrub_text(q["page"])
@@ -56,6 +56,7 @@ start = time.time()
 # print(len(pages), "pages found")
 questions = make_questions(cat, 20)
 print(questions)
+print(len(questions))
 
 end = time.time()
 print(end-start, "s")
