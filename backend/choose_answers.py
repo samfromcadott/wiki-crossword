@@ -2,17 +2,19 @@ import wikipediaapi
 import time
 import random
 
+from make_clue import *
+from scrub_text import *
+
 wiki_wiki = wikipediaapi.Wikipedia('en')
 random.seed(0)
 
 def get_pages(category):
 	# Constants
-	PAGE_LIMIT = 200
+	PAGE_LIMIT = 100
 	PAGE_CHANCE = 0.5
 
 	stack = [category] # Stack of categories
 	pages = [] # List of usable pages
-	p = 0
 
 	while len(stack) > 0 and len(pages) < PAGE_LIMIT:
 		c = stack.pop(0)
@@ -21,8 +23,6 @@ def get_pages(category):
 			# Add main articles to the page list
 			if page.ns == wikipediaapi.Namespace.MAIN and random.random() <= PAGE_CHANCE:
 				pages.append(page.title)
-				p+=1
-				print(p, end='\r')
 
 			# Add categories to the stack
 			if page.ns == wikipediaapi.Namespace.CATEGORY:
@@ -30,13 +30,32 @@ def get_pages(category):
 
 	return pages
 
+
+def make_questions(category, n):
+	pages = get_pages(category)
+	questions = []
+
+	for i in range(n):
+		q = {"page": '', "answer": '', "clue": ''}
+		q["page"] = pages.pop( random.randint(0, len(pages)-1) )
+		q["answer"] = scrub_text(q["page"])
+		q["clue"] =  makeClue(q["page"])
+
+		questions.append(q)
+
+	return questions
+
 catName = "Category:Physics"
 cat = wiki_wiki.page(catName)
 print(f"Category members: {catName}")
+
 start = time.time()
-# print( get_pages(cat.categorymembers, level=0, max_level=-1))
-pages = get_pages(cat)
-print(pages)
-print(len(pages), "pages found")
+
+# pages = get_pages(cat)
+# print(pages)
+# print(len(pages), "pages found")
+questions = make_questions(cat, 20)
+print(questions)
+
 end = time.time()
 print(end-start, "s")
