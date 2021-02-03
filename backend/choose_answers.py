@@ -6,16 +6,20 @@ wiki_wiki = wikipediaapi.Wikipedia('en')
 random.seed(0)
 
 def get_pages(category):
+	# Constants
+	PAGE_LIMIT = 200
+	PAGE_CHANCE = 0.5
+
 	stack = [category] # Stack of categories
 	pages = [] # List of usable pages
 	p = 0
 
-	while len(stack) > 0 and len(pages) < 200:
+	while len(stack) > 0 and len(pages) < PAGE_LIMIT:
 		c = stack.pop(0)
 
 		for page in c.categorymembers.values():
 			# Add main articles to the page list
-			if page.ns == wikipediaapi.Namespace.MAIN and random.random() > 0.5:
+			if page.ns == wikipediaapi.Namespace.MAIN and random.random() <= PAGE_CHANCE:
 				pages.append(page.title)
 				p+=1
 				print(p, end='\r')
