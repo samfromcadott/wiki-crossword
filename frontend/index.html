@@ -9,37 +9,50 @@
 
 </head>
 <body>
-	<table id="puzzle">
-		<tr v-for="(row, y) in grid">
-			<td v-for="(cell, x) in row" v-bind:class="{ 'answer-square': cell!=null }">
-				<span
-					v-if="cell!=null && cell.number>0"
-					class="answer-number">
+	<div  id="puzzle">
+		<table>
+			<tr v-for="(row, y) in grid">
+				<td v-for="(cell, x) in row" v-bind:class="{ 'answer-square': cell!=null }">
+					<span
+						v-if="cell!=null && cell.number>0"
+						class="answer-number">
 
-					{{grid[y][x].number}}
-				</span>
+						{{grid[y][x].number}}
+					</span>
 
-				<input
-					class="answer-input"
-					maxlength="1"
-					v-if="cell!=null"
-					v-show="grid[y][x].input != grid[y][x].text"
-					v-model="grid[y][x].input"
-					type="text"
-				/>
+					<input
+						class="answer-input"
+						maxlength="1"
+						v-if="cell!=null"
+						v-show="grid[y][x].input != grid[y][x].text"
+						v-model="grid[y][x].input"
+						type="text"
+					/>
 
-				<span
-					class="answer-text"
-					v-if="cell!=null"
-					v-show="grid[y][x].input == grid[y][x].text">
+					<span
+						class="answer-text"
+						v-if="cell!=null"
+						v-show="grid[y][x].input == grid[y][x].text">
 
-					{{grid[y][x].text}}
-				</span>
+						{{grid[y][x].text}}
+					</span>
 
 
-			</td>
-		</tr>
-	</table>
+				</td>
+			</tr>
+		</table>
+
+		<h2>Across</h2>
+		<ol>
+			<li v-for="i in across">{{i}}</li>
+		</ol>
+
+		<h2>Down</h2>
+		<ol>
+			<li v-for="i in down">{{i}}</li>
+		</ol>
+
+	</div>
 
 </body>
 </html>
