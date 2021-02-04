@@ -23,7 +23,7 @@ var puzzle = {
 			answer: 'abc'
 		},
 		2: {
-			x: 4,
+			x: 5,
 			y: 4,
 			answer: 'abcd'
 		}
@@ -46,7 +46,7 @@ for (word in puzzle.across) {
 			n = word
 		}
 
-		grid[w.y][w.x+i] = {text: w.answer[i], number: n}
+		grid[w.y][w.x+i] = {text: w.answer[i], number: n, input: ''}
 
 	}
 }
@@ -59,7 +59,7 @@ for (word in puzzle.down) {
 			n = word
 		}
 
-		grid[w.y+i][w.x] = {text: w.answer[i], number: n}
+		grid[w.y+i][w.x] = {text: w.answer[i], number: n, input: ''}
 
 	}
 }

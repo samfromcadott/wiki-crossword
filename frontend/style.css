@@ -5,6 +5,7 @@ table {
 td {
 	width: 2em;
 	height: 2em;
+	overflow: hidden;
 }
 
 td.answer-square {
@@ -12,6 +13,12 @@ td.answer-square {
 }
 
 .answer-square>.answer-number {
-	position: absolute;
+	position: relative;
 	font-size: 8pt;
+	left: 0;
+	top: 0;
+	vertical-align: top;
+	text-align: right;
+	padding: 0;
+	margin: 0;
 }

@@ -19,6 +19,21 @@
 					{{grid[y][x].number}}
 				</span>
 
+				<input
+					v-if="cell!=null"
+					v-show="grid[y][x].input != grid[y][x].text"
+					v-model="grid[y][x].input"
+					type="text"
+				/>
+
+				<span
+					v-if="cell!=null"
+					v-show="grid[y][x].input == grid[y][x].text">
+
+					{{grid[y][x].text}}
+				</span>
+
+
 			</td>
 		</tr>
 	</table>
