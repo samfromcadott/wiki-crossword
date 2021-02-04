@@ -6,12 +6,14 @@ var puzzle = {
 		1: {
 			x: 0,
 			y: 0,
-			answer: 'abc'
+			answer: 'abc',
+			clue: 'The first three letters of the alphabet.'
 		},
 		2: {
 			x: 3,
 			y: 6,
-			answer: 'abcd'
+			answer: 'abcd',
+			clue: 'The first four letters of the alphabet.'
 		}
 
 	},
@@ -20,12 +22,14 @@ var puzzle = {
 		1: {
 			x: 0,
 			y: 0,
-			answer: 'abc'
+			answer: 'abc',
+			clue: 'The first three letters of the alphabet.'
 		},
 		2: {
 			x: 5,
 			y: 4,
-			answer: 'abcd'
+			answer: 'abcd',
+			clue: 'The first four letters of the alphabet.'
 		}
 
 	}
@@ -69,6 +73,8 @@ var crossword = new Vue({
 	el: '#puzzle',
 	data: {
 		grid: grid,
+		across: Array.from(Object.values(puzzle.across), i => i.clue),
+		down: Array.from(Object.values(puzzle.down), i => i.clue)
 
 	}
 
