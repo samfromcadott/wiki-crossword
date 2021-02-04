@@ -24,7 +24,7 @@
 						class="answer-input"
 						maxlength="1"
 						v-if="cell!=null"
-						v-show="grid[y][x].input != grid[y][x].text"
+						v-show="grid[y][x].input.toUpperCase() != grid[y][x].text"
 						v-model="grid[y][x].input"
 						type="text"
 					/>
@@ -32,7 +32,7 @@
 					<span
 						class="answer-text"
 						v-if="cell!=null"
-						v-show="grid[y][x].input == grid[y][x].text">
+						v-show="grid[y][x].input.toUpperCase() == grid[y][x].text">
 
 						{{grid[y][x].text}}
 					</span>

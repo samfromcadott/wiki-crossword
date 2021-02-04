@@ -6,13 +6,13 @@ var puzzle = {
 		1: {
 			x: 0,
 			y: 0,
-			answer: 'abc',
+			answer: 'ABC',
 			clue: 'The first three letters of the alphabet.'
 		},
 		2: {
 			x: 3,
 			y: 6,
-			answer: 'abcd',
+			answer: 'ABCD',
 			clue: 'The first four letters of the alphabet.'
 		}
 
@@ -22,13 +22,13 @@ var puzzle = {
 		1: {
 			x: 0,
 			y: 0,
-			answer: 'abc',
+			answer: 'ABC',
 			clue: 'The first three letters of the alphabet.'
 		},
 		2: {
 			x: 5,
 			y: 4,
-			answer: 'abcd',
+			answer: 'ABCD',
 			clue: 'The first four letters of the alphabet.'
 		}
 
