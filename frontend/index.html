@@ -20,6 +20,8 @@
 				</span>
 
 				<input
+					class="answer-input"
+					maxlength="1"
 					v-if="cell!=null"
 					v-show="grid[y][x].input != grid[y][x].text"
 					v-model="grid[y][x].input"
@@ -27,6 +29,7 @@
 				/>
 
 				<span
+					class="answer-text"
 					v-if="cell!=null"
 					v-show="grid[y][x].input == grid[y][x].text">
 
