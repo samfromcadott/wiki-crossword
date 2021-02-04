@@ -42,32 +42,23 @@ for (var i = 0; i < grid.length; i++) {
 
 }
 
-for (word in puzzle.across) {
-	var w = puzzle.across[word]
-	for (var i = 0; i < w.answer.length; i++) {
-		var n = 0
-		if (i == 0) {
-			n = word
+function addWordsToGrid(words, dx, dy) {
+	for (w in words) {
+		var word = words[w]
+		for (var i = 0; i < word.answer.length; i++) {
+			var n = 0
+			if (i == 0) {
+				n = w
+			}
+
+			grid[word.y+i*dy][word.x+i*dx] = {text: word.answer[i], number: n, input: ''}
+
 		}
-
-		grid[w.y][w.x+i] = {text: w.answer[i], number: n, input: ''}
-
 	}
 }
 
-for (word in puzzle.down) {
-	var w = puzzle.down[word]
-	for (var i = 0; i < w.answer.length; i++) {
-		var n = 0
-		if (i == 0) {
-			n = word
-		}
-
-		grid[w.y+i][w.x] = {text: w.answer[i], number: n, input: ''}
-
-	}
-}
-console.log(grid);
+addWordsToGrid(puzzle.across, 1, 0)
+addWordsToGrid(puzzle.down, 0, 1)
 
 var crossword = new Vue({
 	el: '#puzzle',
