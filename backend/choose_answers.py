@@ -39,7 +39,7 @@ def make_questions(category, n):
 		q = {"page": '', "answer": '', "clue": ''}
 		q["page"] = pages.pop( random.randint(0, len(pages)-1) )
 		q["answer"] = scrub_text(q["page"])
-		q["clue"] =  makeClue(q["page"])
+		q["clue"] =  make_clue(q["page"])
 
 		questions.append(q)
 

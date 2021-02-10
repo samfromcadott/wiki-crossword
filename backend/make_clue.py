@@ -3,7 +3,7 @@ import re
 
 wiki_en = wikipediaapi.Wikipedia('en')
 
-def makeClue(page):
+def make_clue(page):
 	expresion = re.compile("(?:is|was|are|were)(.*?[\.!\?](?:\s|$))")
 	page = wiki_en.page(page)
 	summary = ""
@@ -21,4 +21,4 @@ def makeClue(page):
 
 
 if __name__ == '__main__':
-	print(makeClue('Cadott, Wisconsin'))
+	print(make_clue('Cadott, Wisconsin'))
