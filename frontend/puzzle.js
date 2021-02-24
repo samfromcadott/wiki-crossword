@@ -1,39 +1,39 @@
-var puzzle = {
-	width: 10,
-	height: 10,
-
-	across: {
-		1: {
-			x: 0,
-			y: 0,
-			answer: 'ABC',
-			clue: 'The first three letters of the alphabet.'
-		},
-		2: {
-			x: 3,
-			y: 6,
-			answer: 'ABCD',
-			clue: 'The first four letters of the alphabet.'
-		}
-
-	},
-
-	down: {
-		1: {
-			x: 0,
-			y: 0,
-			answer: 'ABC',
-			clue: 'The first three letters of the alphabet.'
-		},
-		2: {
-			x: 5,
-			y: 4,
-			answer: 'ABCD',
-			clue: 'The first four letters of the alphabet.'
-		}
-
-	}
-}
+// var puzzle = {
+// 	width: 10,
+// 	height: 10,
+//
+// 	across: {
+// 		1: {
+// 			x: 0,
+// 			y: 0,
+// 			answer: 'ABC',
+// 			clue: 'The first three letters of the alphabet.'
+// 		},
+// 		2: {
+// 			x: 3,
+// 			y: 6,
+// 			answer: 'ABCD',
+// 			clue: 'The first four letters of the alphabet.'
+// 		}
+//
+// 	},
+//
+// 	down: {
+// 		1: {
+// 			x: 0,
+// 			y: 0,
+// 			answer: 'ABC',
+// 			clue: 'The first three letters of the alphabet.'
+// 		},
+// 		2: {
+// 			x: 5,
+// 			y: 4,
+// 			answer: 'ABCD',
+// 			clue: 'The first four letters of the alphabet.'
+// 		}
+//
+// 	}
+// }
 
 var grid = new Array(puzzle.height);
 
