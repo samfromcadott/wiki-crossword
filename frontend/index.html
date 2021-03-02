@@ -8,9 +8,9 @@
 	<script type="text/javascript">
 		var puzzle = JSON.parse("{{puzzle|escapejs}}")
 	</script>
-	<!-- <script src="puzzle.js" type="text/javascript" defer></script> -->
+	<script src="{% static 'puzzle.js' %}" type="text/javascript" defer></script>
 
-	<link rel="stylesheet" href="{% static 'style.css' %}">
+	<link rel="stylesheet" href="{% static 'css/style.css' %}">
 
 </head>
 <body>
