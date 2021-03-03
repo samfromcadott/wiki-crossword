@@ -1,40 +1,4 @@
-// var puzzle = {
-// 	width: 10,
-// 	height: 10,
-//
-// 	across: {
-// 		1: {
-// 			x: 0,
-// 			y: 0,
-// 			answer: 'ABC',
-// 			clue: 'The first three letters of the alphabet.'
-// 		},
-// 		2: {
-// 			x: 3,
-// 			y: 6,
-// 			answer: 'ABCD',
-// 			clue: 'The first four letters of the alphabet.'
-// 		}
-//
-// 	},
-//
-// 	down: {
-// 		1: {
-// 			x: 0,
-// 			y: 0,
-// 			answer: 'ABC',
-// 			clue: 'The first three letters of the alphabet.'
-// 		},
-// 		2: {
-// 			x: 5,
-// 			y: 4,
-// 			answer: 'ABCD',
-// 			clue: 'The first four letters of the alphabet.'
-// 		}
-//
-// 	}
-// }
-
+// Create a 2D array of the letters
 var grid = new Array(puzzle.height);
 
 for (var i = 0; i < grid.length; i++) {
@@ -43,9 +7,12 @@ for (var i = 0; i < grid.length; i++) {
 }
 
 function addWordsToGrid(words, dx, dy) {
+	// Adds words to the grid (duh). (dx, dy) is the direction the words are oriented
 	for (w in words) {
 		var word = words[w]
+		// Add each letter to the grid
 		for (var i = 0; i < word.answer.length; i++) {
+			// If the letter is the first in a word there should be a number label
 			var n = 0
 			if (i == 0) {
 				n = w
@@ -60,6 +27,7 @@ function addWordsToGrid(words, dx, dy) {
 addWordsToGrid(puzzle.across, 1, 0)
 addWordsToGrid(puzzle.down, 0, 1)
 
+// Vue instance for the puzzle
 var crossword = new Vue({
 	el: '#puzzle',
 	data: {
