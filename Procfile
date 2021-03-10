@@ -1,1 +1,1 @@
-web: gunicorn wiki-crossword.wsgi
+web: gunicorn wikiCrossword.wsgi
