@@ -72,7 +72,6 @@ PROJECT_PATH = os.path.realpath(os.path.dirname(__file__))
 # }
 
 def index(request):
-	# return HttpResponse('Hello world!')
 	# a = Crossword(13, 13, '-', 5000, word_list)
 	# a.compute_crossword(2)
 	puzzle = a.dictionary()
