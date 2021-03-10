@@ -148,7 +148,7 @@ class Crossword(object):
 
 		The more crosses the better.
 		'''
-		if col < 1 or row < 1:
+		if col < 0 or row < 0:
 			return 0
 
 		count, score = 1, 1 # give score a standard value of 1, will override with 0 if collisions detected
@@ -313,7 +313,7 @@ class Crossword(object):
 		}
 
 		for w in self.current_word_list:
-			word = {'x': w.col-1,'y': w.row-1,'answer': w.word.upper(), 'clue': w.clue}
+			word = {'x': w.col,'y': w.row,'answer': w.word.upper(), 'clue': w.clue}
 			if w.vertical:
 				dict['down'][w.number] = word
 			else:
@@ -344,35 +344,37 @@ class Word(object):
 ### end class, start execution
 
 #start_full = float(time.time())
+if __name__ == '__main__':
+	word_list = ['saffron', 'The dried, orange yellow plant used to as dye and as a cooking spice.'], \
+		['pumpernickel', 'Dark, sour bread made from coarse ground rye.'], \
+		['leaven', 'An agent, such as yeast, that cause batter or dough to rise..'], \
+		['coda', 'Musical conclusion of a movement or composition.'], \
+		['paladin', 'A heroic champion or paragon of chivalry.'], \
+		['syncopation', 'Shifting the emphasis of a beat to the normally weak beat.'], \
+		['albatross', 'A large bird of the ocean having a hooked beek and long, narrow wings.'], \
+		['harp', 'Musical instrument with 46 or more open strings played by plucking.'], \
+		['piston', 'A solid cylinder or disk that fits snugly in a larger cylinder and moves under pressure as in an engine.'], \
+		['caramel', 'A smooth chery candy made from suger, butter, cream or milk with flavoring.'], \
+		['coral', 'A rock-like deposit of organism skeletons that make up reefs.'], \
+		['dawn', 'The time of each morning at which daylight begins.'], \
+		['pitch', 'A resin derived from the sap of various pine trees.'], \
+		['fjord', 'A long, narrow, deep inlet of the sea between steep slopes.'], \
+		['lip', 'Either of two fleshy folds surrounding the mouth.'], \
+		['lime', 'The egg-shaped citrus fruit having a green coloring and acidic juice.'], \
+		['mist', 'A mass of fine water droplets in the air near or in contact with the ground.'], \
+		['plague', 'A widespread affliction or calamity.'], \
+		['yarn', 'A strand of twisted threads or a long elaborate narrative.'], \
+		['snicker', 'A snide, slightly stifled laugh.']
 
-word_list = ['saffron', 'The dried, orange yellow plant used to as dye and as a cooking spice.'], \
-	['pumpernickel', 'Dark, sour bread made from coarse ground rye.'], \
-	['leaven', 'An agent, such as yeast, that cause batter or dough to rise..'], \
-	['coda', 'Musical conclusion of a movement or composition.'], \
-	['paladin', 'A heroic champion or paragon of chivalry.'], \
-	['syncopation', 'Shifting the emphasis of a beat to the normally weak beat.'], \
-	['albatross', 'A large bird of the ocean having a hooked beek and long, narrow wings.'], \
-	['harp', 'Musical instrument with 46 or more open strings played by plucking.'], \
-	['piston', 'A solid cylinder or disk that fits snugly in a larger cylinder and moves under pressure as in an engine.'], \
-	['caramel', 'A smooth chery candy made from suger, butter, cream or milk with flavoring.'], \
-	['coral', 'A rock-like deposit of organism skeletons that make up reefs.'], \
-	['dawn', 'The time of each morning at which daylight begins.'], \
-	['pitch', 'A resin derived from the sap of various pine trees.'], \
-	['fjord', 'A long, narrow, deep inlet of the sea between steep slopes.'], \
-	['lip', 'Either of two fleshy folds surrounding the mouth.'], \
-	['lime', 'The egg-shaped citrus fruit having a green coloring and acidic juice.'], \
-	['mist', 'A mass of fine water droplets in the air near or in contact with the ground.'], \
-	['plague', 'A widespread affliction or calamity.'], \
-	['yarn', 'A strand of twisted threads or a long elaborate narrative.'], \
-	['snicker', 'A snide, slightly stifled laugh.']
+	print(word_list)
 
-a = Crossword(13, 13, '-', 5000, word_list)
-a.compute_crossword(2)
-a.word_bank()
-a.solution()
-# print( a.word_find() )
-a.display()
-a.legend()
+	a = Crossword(13, 13, '-', 5000, word_list)
+	a.compute_crossword(2)
+	a.word_bank()
+	a.solution()
+	# print( a.word_find() )
+	a.display()
+	a.legend()
 # print( a.dictionary() )
 # print( len(a.current_word_list), 'out of', len(word_list) )
 # print( a.debug )

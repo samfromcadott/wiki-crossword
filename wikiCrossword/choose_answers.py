@@ -2,11 +2,12 @@ import wikipediaapi
 import time
 import random
 
-from make_clue import *
-from scrub_text import *
+from .make_clue import *
+from .scrub_text import *
 
 wiki_wiki = wikipediaapi.Wikipedia('en')
-random.seed(0)
+# random.seed(0)
+random.seed()
 
 def get_pages(category):
 	# Constants
@@ -31,7 +32,8 @@ def get_pages(category):
 	return pages
 
 
-def make_questions(category, n):
+def make_questions(category_name, n):
+	category = wiki_wiki.page(category_name)
 	pages = get_pages(category)
 	questions = []
 
@@ -45,18 +47,20 @@ def make_questions(category, n):
 
 	return questions
 
-catName = "Category:Physics"
-cat = wiki_wiki.page(catName)
-print(f"Category members: {catName}")
 
-start = time.time()
+if __name__ == '__main__':
+	catName = "Category:Physics"
+	cat = wiki_wiki.page(catName)
+	print(f"Category members: {catName}")
 
-# pages = get_pages(cat)
-# print(pages)
-# print(len(pages), "pages found")
-questions = make_questions(cat, 20)
-print(questions)
-print(len(questions))
+	start = time.time()
 
-end = time.time()
-print(end-start, "s")
+	# pages = get_pages(cat)
+	# print(pages)
+	# print(len(pages), "pages found")
+	questions = make_questions(cat, 20)
+	print(questions)
+	print(len(questions))
+
+	end = time.time()
+	print(end-start, "s")
