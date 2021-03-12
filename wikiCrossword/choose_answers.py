@@ -43,7 +43,8 @@ def make_questions(category_name, n):
 		q["answer"] = scrub_text(q["page"])
 		q["clue"] =  make_clue(q["page"])
 
-		questions.append(q)
+		if q["clue"] is not None:
+			questions.append(q)
 
 	return questions
 

@@ -13,12 +13,14 @@ def make_clue(page):
 	else:
 		return None
 
-	clue = expresion.search(summary).group(1)
-	clue = clue.strip()
-	clue = clue[:1].upper() + clue[1:]
+	search = expresion.search(summary)
+	if search.groups() is not None:
+		clue = search.group(1)
+		clue = clue.strip()
+		clue = clue[:1].upper() + clue[1:]
+		return clue
 
-	return clue
-
+	return None
 
 if __name__ == '__main__':
 	print(make_clue('Cadott, Wisconsin'))
