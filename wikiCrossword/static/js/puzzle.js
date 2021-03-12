@@ -32,9 +32,8 @@ var crossword = new Vue({
 	el: '#puzzle',
 	data: {
 		grid: grid,
-		across: Array.from(Object.values(puzzle.across), i => i.clue),
-		down: Array.from(Object.values(puzzle.down), i => i.clue)
-
+		across: puzzle.across,
+		down: puzzle.down
 	}
 
 })

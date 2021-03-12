@@ -313,7 +313,7 @@ class Crossword(object):
 		}
 
 		for w in self.current_word_list:
-			word = {'x': w.col,'y': w.row,'answer': w.word.upper(), 'clue': w.clue}
+			word = {'number': w.number, 'x': w.col,'y': w.row,'answer': w.word.upper(), 'clue': w.clue}
 			if w.vertical:
 				dict['down'][w.number] = word
 			else:

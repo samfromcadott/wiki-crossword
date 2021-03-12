@@ -48,14 +48,14 @@
 		</table>
 
 		<h2>Across</h2>
-		<ol>
-			<li v-for="i in across" v-text="i"></li>
-		</ol>
+		<ul>
+			<li v-for="i in across" v-text="i.number.toString() + '.\t' + i.clue"></li>
+		</ul>
 
 		<h2>Down</h2>
-		<ol>
-			<li v-for="i in down" v-text="i"></li>
-		</ol>
+		<ul>
+			<li v-for="i in down" v-text="i.number.toString() + '.\t' + i.clue"></li>
+		</ul>
 
 	</div>
 
