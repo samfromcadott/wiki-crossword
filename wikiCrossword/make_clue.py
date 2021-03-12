@@ -4,7 +4,7 @@ import re
 wiki_en = wikipediaapi.Wikipedia('en')
 
 def make_clue(page):
-	expresion = re.compile("(?:is|was|are|were)(.*?[\.!\?](?:\s|$))")
+	expresion = re.compile("(?:\bis|was|are|were\b)(.*?[\.!\?](?:\s|$))")
 	page = wiki_en.page(page)
 	summary = ""
 
