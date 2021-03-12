@@ -1,5 +1,5 @@
 import unittest
-from ../scrub_text import *
+from scrub_text import *
 
 class TestScrubText(unittest.TestCase):
 
