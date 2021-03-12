@@ -13,9 +13,13 @@ function addWordsToGrid(words, dx, dy) {
 		// Add each letter to the grid
 		for (var i = 0; i < word.answer.length; i++) {
 			// If the letter is the first in a word there should be a number label
-			var n = 0
+			var n
 			if (i == 0) {
 				n = w
+			} else if (grid[word.y+i*dy][word.x+i*dx] == null) {
+				n = 0
+			} else {
+				n = grid[word.y+i*dy][word.x+i*dx].number
 			}
 
 			grid[word.y+i*dy][word.x+i*dx] = {text: word.answer[i], number: n, input: ''}
