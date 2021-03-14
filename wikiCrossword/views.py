@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from json import dumps
 
+from django.http import JsonResponse
 from django.http import HttpResponse
 
 import os.path
@@ -29,3 +30,21 @@ def index(request):
 	puzzle = a.dictionary()
 	dataJSON = dumps(puzzle)
 	return render(request, 'index.html', {'puzzle': dataJSON})
+
+def puzzle(request,puzzle_seed):
+	questions = make_questions("Category:Physics", 10)
+	word_list = tuple( [q['answer'], q['clue']] for q in questions )
+	# word_list = []
+	# for q in questions:
+	# 	word_list.append(q['answer'])
+	# 	word_list.append(q['clue'])
+
+	a = Crossword(20, 20, '-', 5000, word_list)
+	a.compute_crossword(2)
+	a.word_bank()
+	a.solution()
+	a.display()
+	a.legend()
+
+	puzzle = a.dictionary()
+	return JsonResponse(puzzle)
