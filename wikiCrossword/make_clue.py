@@ -14,7 +14,7 @@ def make_clue(page):
 		return None
 
 	search = expresion.search(summary)
-	if search.groups() is not None:
+	if search is not None:
 		clue = search.group(1)
 		clue = clue.strip()
 		clue = clue[:1].upper() + clue[1:]
