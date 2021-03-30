@@ -7,7 +7,7 @@ from .scrub_text import *
 
 wiki_wiki = wikipediaapi.Wikipedia('en')
 # random.seed(0)
-random.seed()
+# random.seed()
 
 def get_pages(category):
 	# Constants

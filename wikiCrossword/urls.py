@@ -21,5 +21,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.index, name='index'),
-    path('api/puzzle/<int:puzzle_seed>',views.puzzle, name='puzzle')
+    path('<str:category>/<int:puzzle_seed>',views.puzzle, name='puzzle')
 ]
